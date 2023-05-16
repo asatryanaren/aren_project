@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Public Sans", sans-serif;
+}
+.container {
+  width: 95%;
+  margin: 30px auto;
+}
+.container > h1 {
+  margin-bottom: 40px;
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  margin-left: 50px;
+}
+.item_container {
+  display: flex;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  width: 25%;
+  margin: 10px;
+  padding: 40px 0px;
+}
+.item > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  margin-bottom: 25px;
+  font-size: 25px;
+}
+.item > span {
+  font-size: 30px;
+  font-weight: 700;
+}
+.item > p {
+  font-weight: 600;
+  line-height: 1.57143;
+  font-size: 0.875rem;
+  opacity: 0.72;
+  margin-top: 10px;
+}
+
+.item_one {
+  background-color: #d1e9fc;
+}
+.item_two {
+  background-color: #d0f2ff;
+}
+.item_three {
+  background-color: #fff7cd;
+}
+.item_four {
+  background-color: #ffe7d9;
+}
+.item_one > div {
+  background-color: #b4cfed;
+  color: rgb(6, 27, 100);
+}
+.item_two > div {
+  background-color: #aed7f2;
+}
+.item_three > div {
+  background-color: #f6e7b2;
+}
+.item_four > div {
+  background-color: #f8d3c9;
+}
+.item_one > div :first-child {
+  color: #103996;
+}
+.item_two > div :first-child {
+  color: #0c53b7;
+}
+.item_three > div :first-child {
+  color: #b78103;
+}
+.item_four > div :first-child {
+  color: #b72136;
+}
+.item_one > span {
+  color: #103996;
+}
+.item_two > span {
+  color: #0c53b7;
+}
+.item_three > span {
+  color: #b78103;
+}
+.item_four > span {
+  color: #b72136;
+}
+.item_one > p {
+  color: #103996;
+}
+.item_two > p {
+  color: #0c53b7;
+}
+.item_three > p {
+  color: #b78103;
+}
+.item_four > p {
+  color: #b72136;
+}
+.charts_container {
+  display: flex;
+  margin: 50px 0;
+}
+.charts_container :first-child {
+  width: 50%;
+  padding-right: 10px;
+}
+.charts_container :last-child {
+  width: 50%;
+  padding-left: 10px;
+}
+
+@media (max-width: 900px) {
+  .item_container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .item {
+    width: 46%;
+  }
+  .charts_container {
+    flex-wrap: wrap;
+    margin-top: 0px;
+  }
+  .charts_container :first-child {
+    width: 100%;
+    padding-right: 10px;
+  }
+  .charts_container :last-child {
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 530px) {
+  .item {
+    width: 100%;
+  }
+}

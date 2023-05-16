@@ -1,0 +1,8 @@
+.layout_div {
+  margin-left: 300px;
+}
+@media (max-width: 1150px) {
+  .layout_div {
+    margin-left: 0;
+  }
+}

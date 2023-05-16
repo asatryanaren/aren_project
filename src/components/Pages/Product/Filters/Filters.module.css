@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Public Sans", sans-serif;
+}
+.container {
+  width: 250px;
+  position: fixed;
+  top: 0px;
+  right: 0;
+  background-color: #fff;
+  z-index: 999;
+  height: 100vh;
+}
+.container > input {
+  width: 80%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid rgba(145, 158, 171, 0.32);
+  border-radius: 7px;
+  font-weight: 600;
+  background-color: transparent;
+  cursor: pointer;
+}
+.container > input:hover {
+  background-color: rgb(218, 217, 217);
+}
+.container > p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(218, 217, 217);
+  padding: 20px 15px;
+  font-size: 18px;
+}
+.container > p > span {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.container > p > span:hover {
+  background-color: rgb(218, 217, 217);
+}
+.gender_container {
+  padding: 20px;
+}
+.gender_container > p {
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: rgb(33, 43, 54);
+  margin-bottom: 10px;
+}
+.gender_container label {
+  cursor: pointer;
+  display: block;
+  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 5px 10px;
+  width: 103px;
+  border-radius: 5px;
+}
+.gender_container label:hover {
+  background-color: #efefef;
+}
+.gender_container input {
+  cursor: pointer;
+  margin-right: 10px;
+}
+.category_container {
+  padding: 0px 20px 20px 20px;
+}
+.category_container > p {
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: rgb(33, 43, 54);
+  margin-bottom: 10px;
+}
+.category_container input {
+  cursor: pointer;
+  margin-right: 10px;
+}
+.category_container label {
+  cursor: pointer;
+  display: block;
+  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 5px 10px;
+  width: 133px;
+  border-radius: 5px;
+}
+.category_container label:hover {
+  background-color: #efefef;
+}
+.colors_container {
+  padding: 0 20px;
+}
+.colors_container > div {
+  display: flex;
+}
+.colors_container > p {
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: rgb(33, 43, 54);
+  margin-bottom: 10px;
+}
+.color > div {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.color > div:hover {
+  background-color: rgb(226, 226, 226);
+}
+.color > div > i {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+}
+.green {
+  background-color: #00ab55;
+}
+.black {
+  background-color: #000;
+}
+.white {
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #cccbcb;
+}
+.pink {
+  background-color: #ffc0cb;
+}
+.red {
+  background-color: #ff4842;
+}
+.blue {
+  background-color: #1890ff;
+}
+.lightGreen {
+  background-color: #94d82d;
+}
+.yellow {
+  background-color: #ffc107;
+}

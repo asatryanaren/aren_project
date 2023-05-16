@@ -1,0 +1,238 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Public Sans", sans-serif;
+}
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 80%;
+  margin: 0 auto;
+}
+.form_container {
+  padding: 30px;
+}
+.left_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+.left_block > h1 {
+  color: rgb(33, 43, 54);
+  margin-left: 10%;
+  margin-bottom: 45px;
+}
+.left_block :last-child > button {
+  border: none;
+  color: white;
+  background-color: #2065d1;
+  padding: 13px;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0px 0px 6px #357ae7;
+}
+.left_block :last-child > button:hover {
+  background-color: #2f74db;
+  box-shadow: none;
+}
+.left_block :last-child {
+  text-decoration: none;
+}
+.right_block {
+  width: 540px;
+  padding: 0 30px;
+}
+.right_block > h2 {
+  color: rgb(33, 43, 54);
+}
+.right_block > p {
+  color: rgb(33, 43, 54);
+  margin: 20px 0;
+}
+.right_block > p :first-child {
+  color: #2765d1;
+  font-weight: bold;
+  text-decoration: 1px underline solid #568be5;
+}
+.right_block > input {
+  width: 100%;
+  border: 1px solid rgb(145, 158, 171);
+  border-radius: 5px;
+  padding: 15px 10px;
+  color: #000030;
+  outline: none;
+  font-size: 17px;
+}
+.right_block > input:hover {
+  outline: 1px solid #1877f2;
+}
+.right_block > button {
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #2065d1;
+  cursor: pointer;
+  padding: 13px;
+  font-size: 17px;
+  box-shadow: 0px 0px 6px #357ae7;
+  margin-top: 20px;
+}
+.right_block > button:hover {
+  background-color: #4171c0;
+  box-shadow: none;
+}
+.logo_container {
+  display: flex;
+  justify-content: space-between;
+}
+.logo_container > span {
+  border: 1px solid rgb(145, 158, 171);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 30%;
+  color: rgb(24, 119, 242);
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.logo_container > span:first-child {
+  color: red;
+}
+.logo_container > span:hover {
+  background-color: #f6f4f4;
+}
+.line_container {
+  margin: 24px 0px;
+  display: flex;
+  align-items: center;
+  color: #6388b4;
+}
+.line_container > p {
+  width: 100%;
+  border: 1px solid rgb(145, 158, 171);
+  height: 1px;
+}
+.line_container > span {
+  margin: 0 10px;
+}
+.check_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.check_container :last-child {
+  color: rgb(32, 101, 209);
+  text-decoration: none;
+}
+.check_container :last-child:hover {
+  text-decoration: underline 1px solid rgb(32, 101, 209);
+}
+.eye {
+  position: relative;
+  left: 92.5%;
+  bottom: -40px;
+  color: #000030;
+  font-size: 19px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.eye:hover {
+  background-color: rgb(237, 238, 239);
+}
+.eye:hover ~ input {
+  outline: 1px solid #1877f2;
+}
+
+.custom_checkbox {
+  display: flex;
+  align-items: center;
+}
+.hidden_checkbox {
+  display: none;
+  transition: 5s;
+}
+.custom_checkbox .checkbox {
+  border: 2px solid rgb(145, 158, 171);
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+}
+.custom_checkbox .checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  display: none;
+  font-size: 20px;
+}
+.custom_checkbox input:checked + .checkbox .checkmark {
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .left_block > img {
+    display: none;
+  }
+  .left_block > h1 {
+    display: none;
+  }
+  .left_block {
+    display: block;
+    width: 540px;
+    padding: 0 30px;
+  }
+  .left_block button {
+    display: block;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .right_block {
+    width: 100%;
+  }
+  .eye {
+    position: relative;
+    left: 82%;
+  }
+  .left_block {
+    display: block;
+    justify-content: center;
+    margin: 0 auto;
+    width: 55%;
+  }
+  .left_block button {
+    min-width: 126px;
+  }
+  .left_block :last-child {
+    display: block;
+    margin: 0 auto;
+    width: 97%;
+    text-decoration: none;
+  }
+}
