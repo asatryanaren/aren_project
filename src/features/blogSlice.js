@@ -7,9 +7,7 @@ export const blogSlice = createSlice({
   initialState,
   reducers: {
     filterBlog(state, action) {
-      if (action.payload === "") {
-        return data;
-      }
+      if (action.payload.length >= 0) state = data;
       return state.filter((blog) =>
         blog.text.toLowerCase().includes(action.payload.toLowerCase())
       );

@@ -26,7 +26,7 @@ const User = () => {
     dispatch(addUser(newUser));
     setNewUser("");
   };
-  const search = (e) => dispatch(searchUser(e.target.value));
+  const search = (e) => dispatch(searchUser(e));
   const completed = (id) => dispatch(userCompleted(id));
   const deleteAllCompleted = () => dispatch(userDeleteAllCompleted());
   const allChecks = () => {
@@ -58,7 +58,7 @@ const User = () => {
             <input
               type="text"
               placeholder="Search User..."
-              onChange={(e) => search(e)}
+              onChange={(e) => search(e.target.value)}
             />
           </div>
           <span onClick={deleteAllCompleted}>

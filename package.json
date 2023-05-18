@@ -2,7 +2,6 @@
   "name": "toolkit-example",
   "version": "0.1.0",
   "private": true,
-  "homepage": " https://asatryanaren.github.io/example-project/",
   "dependencies": {
     "-": "^0.0.1",
     "@reduxjs/toolkit": "^1.9.3",

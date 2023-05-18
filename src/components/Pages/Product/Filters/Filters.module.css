@@ -60,12 +60,11 @@
 }
 .gender_container label {
   cursor: pointer;
-  display: block;
   line-height: 1.5;
   font-size: 1rem;
   font-weight: 400;
   padding: 5px 10px;
-  width: 103px;
+  width: 110px;
   border-radius: 5px;
 }
 .gender_container label:hover {
@@ -85,13 +84,8 @@
   color: rgb(33, 43, 54);
   margin-bottom: 10px;
 }
-.category_container input {
-  cursor: pointer;
-  margin-right: 10px;
-}
 .category_container label {
   cursor: pointer;
-  display: block;
   line-height: 1.5;
   font-size: 1rem;
   font-weight: 400;
@@ -157,4 +151,78 @@
 }
 .yellow {
   background-color: #ffc107;
+}
+.custom_checkbox {
+  display: flex;
+  align-items: center;
+}
+.custom_checkbox :last-child {
+  margin-left: 10px;
+}
+.hidden_checkbox {
+  display: none;
+  transition: 5s;
+}
+.custom_checkbox .checkbox {
+  border: 2px solid rgb(145, 158, 171);
+  border-radius: 4px;
+  width: 17px;
+  height: 17px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.custom_checkbox .checkmark {
+  position: absolute;
+  top: 50%;
+  left: -25%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  display: none;
+  font-size: 20px;
+  color: rgb(130, 132, 135);
+}
+.custom_checkbox input:checked + .checkbox .checkmark {
+  display: block;
+}
+.radio {
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: block;
+  vertical-align: middle;
+  position: relative;
+}
+.hidden_radio {
+  display: none;
+}
+.radio span {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid rgb(145, 158, 171);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 7px;
+  margin-left: 10px;
+}
+.radio span::after {
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: rgb(130, 132, 135);
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: 300ms ease-in-out 0s;
+}
+.hidden_radio:checked ~ span::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.radio p {
+  margin-left: 30px;
 }

@@ -1,4 +1,5 @@
 import { RxCross2 } from "react-icons/rx";
+import { BsCheck } from "react-icons/bs";
 import s from "./Filters.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -67,65 +68,93 @@ const Filters = () => {
       <div className={s.gender_container}>
         <p>Gender</p>
         <div>
-          <label>
+          <label className={s.custom_checkbox}>
             <input
               type="checkbox"
+              className={s.hidden_checkbox}
               checked={checkedMen}
               onClick={checkM}
               onChange={changeMen}
             />
-            Men
+            <div className={s.checkbox}>
+              <BsCheck className={s.checkmark} />
+            </div>
+            <p>Men</p>
           </label>
         </div>
         <div>
-          <label>
+          <label className={s.custom_checkbox}>
             <input
               type="checkbox"
+              className={s.hidden_checkbox}
               checked={checkedWomen}
               onClick={checkW}
               onChange={changeWomen}
             />
-            Women
+            <div className={s.checkbox}>
+              <BsCheck className={s.checkmark} />
+            </div>
+            <p>Women</p>
           </label>
         </div>
         <div>
-          <label>
+          <label className={s.custom_checkbox}>
             <input
               type="checkbox"
+              className={s.hidden_checkbox}
               checked={checkedKids}
               onClick={checkK}
               onChange={changeKids}
             />
-            Kids
+            <div className={s.checkbox}>
+              <BsCheck className={s.checkmark} />
+            </div>
+            <p>Kids</p>
           </label>
         </div>
       </div>
       <div className={s.category_container}>
         <p>Category</p>
-        <div>
-          <label>
-            <input type="radio" name="category" onClick={categoryAll} />
-            All
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="radio" name="category" onClick={categoryShose} />
-            Shose
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="radio" name="category" onClick={categoryApparel} />
-            Apparel
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="radio" name="category" onClick={categoryAccessories} />
-            Accessories
-          </label>
-        </div>
+        <label className={s.radio}>
+          <input
+            type="radio"
+            name="category"
+            onClick={categoryAll}
+            className={s.hidden_radio}
+          />
+          <p>All</p>
+          <span></span>
+        </label>
+        <label className={s.radio}>
+          <input
+            type="radio"
+            name="category"
+            onClick={categoryShose}
+            className={s.hidden_radio}
+          />
+          <p>Shose</p>
+          <span></span>
+        </label>
+        <label className={s.radio}>
+          <input
+            type="radio"
+            name="category"
+            onClick={categoryApparel}
+            className={s.hidden_radio}
+          />
+          <p>Apparel</p>
+          <span></span>
+        </label>
+        <label className={s.radio}>
+          <input
+            type="radio"
+            name="category"
+            onClick={categoryAccessories}
+            className={s.hidden_radio}
+          />
+          <p>Accessories</p>
+          <span></span>
+        </label>
       </div>
       <div className={s.colors_container}>
         <p>Colors</p>

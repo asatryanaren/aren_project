@@ -12,27 +12,28 @@ const userSlice = createSlice({
       );
     },
     searchUser: (state, action) => {
-      if (action.payload === "") {
-        state.userState = data;
-      }
-      state.userState = state.userState.filter((blog) =>
-        blog.name.toLowerCase().includes(action.payload.toLowerCase())
+      if (action.payload.length >= 0) state.userState = data;
+      state.userState = state.userState.filter((u) =>
+        u.name.toLowerCase().includes(action.payload.toLowerCase())
       );
     },
     addUser: (state, action) => {
-      state.userState = [
-        {
-          id: Math.random(),
-          name: action.payload,
-          imgSrc: "./images/avatar.jpg",
-          role: "Leader",
-          verified: "Yes",
-          status: "Active",
-          company: "Ritchie, Haley and Botsford",
-          completed: false,
-        },
-        ...state.userState,
-      ];
+      if (action.payload) {
+        state.userState = [
+          {
+            id: Math.random(),
+            name: action.payload,
+            imgSrc: "./images/avatar.jpg",
+            role: "Leader",
+            verified: "Yes",
+            status: "Active",
+            company: "Ritchie, Haley and Botsford",
+            completed: false,
+          },
+          ...state.userState,
+        ];
+      }
+      state.userState = state.userState;
     },
     userCompleted: (state, action) => {
       const completed = state.userState.find(
