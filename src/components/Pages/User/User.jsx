@@ -1,6 +1,6 @@
 import s from "./User.module.css";
 import { AiOutlinePlus } from "react-icons/ai";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaRegTrashAlt, FaHandPointRight } from "react-icons/fa";
 import { BsCheck } from "react-icons/bs";
 import { ImSearch } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,23 +9,24 @@ import {
   selectUserState,
   deleteUser,
   searchUser,
-  addUser,
+  showPopupUser,
   userCompleted,
   userDeleteAllCompleted,
   userAllChecks,
   userAllInchecks,
+  selectStatusBlockState,
+  statusBlock,
+  status,
+  selectIdState,
+  statusEdit,
 } from "../../../features/userSlice";
 import { useState } from "react";
 
 const User = () => {
   const userState = useSelector(selectUserState);
   const dispatch = useDispatch();
-  const [newUser, setNewUser] = useState("");
   const [allChecksLogo, setAllChecksLogo] = useState(false);
-  const addNewUser = () => {
-    dispatch(addUser(newUser));
-    setNewUser("");
-  };
+  const addPopup = () => dispatch(showPopupUser(true));
   const search = (e) => dispatch(searchUser(e));
   const completed = (id) => dispatch(userCompleted(id));
   const deleteAllCompleted = () => dispatch(userDeleteAllCompleted());
@@ -34,22 +35,25 @@ const User = () => {
     setAllChecksLogo(!allChecksLogo);
   };
   const delet = (id) => dispatch(deleteUser(id));
+  const statusBlockState = useSelector(selectStatusBlockState);
+  const idStatus = useSelector(selectIdState);
+  document.addEventListener("click", () => dispatch(statusBlock(false)));
+  const statusEditActive = () => {
+    dispatch(statusBlock(false));
+    dispatch(statusEdit("Active"));
+  };
+  const statusEditBanned = () => {
+    dispatch(statusBlock(false));
+    dispatch(statusEdit("Banned"));
+  };
 
   return (
     <section className={s.container}>
       <div className={s.title_container}>
         <h1>User</h1>
-        <div className={s.add_container}>
-          <input
-            type="text"
-            placeholder="Write User Name"
-            value={newUser}
-            onChange={(e) => setNewUser(e.target.value)}
-          />
-          <button onClick={addNewUser}>
-            <AiOutlinePlus /> New User
-          </button>
-        </div>
+        <button onClick={addPopup} className={s.add_button}>
+          <AiOutlinePlus /> New User
+        </button>
       </div>
       <div>
         <div className={s.search_container}>
@@ -92,20 +96,43 @@ const User = () => {
                     <BsCheck className={s.checkmark} />
                   </div>
                 </label>
-
                 <img src={i.imgSrc} />
                 <span>{i.name}</span>
               </li>
               <li className={s.company}>{i.company}</li>
               <li className={s.role}>{i.role}</li>
               <li className={s.verified}>{i.verified}</li>
-              <li className={s.status}>
-                <span className={i.status === "Active" ? s.active : s.banned}>
+
+              <li onClick={(e) => e.stopPropagation()} className={s.status}>
+                <span
+                  className={i.status === "Active" ? s.active : s.banned}
+                  onClick={() => dispatch(status(i.id))}
+                >
                   {i.status}
                 </span>
                 <i onClick={() => delet(i.id)}>
                   <FaRegTrashAlt />
                 </i>
+                <ul
+                  className={
+                    idStatus === i.id && statusBlockState
+                      ? s.status_block_show
+                      : s.status_block_hidden
+                  }
+                >
+                  <li>
+                    <span>
+                      <FaHandPointRight />
+                    </span>
+                    <p onClick={statusEditActive}>Active</p>
+                  </li>
+                  <li>
+                    <span>
+                      <FaHandPointRight />
+                    </span>
+                    <p onClick={statusEditBanned}>Banned</p>
+                  </li>
+                </ul>
               </li>
             </ul>
           );

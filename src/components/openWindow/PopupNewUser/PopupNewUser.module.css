@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container_popupNewUser {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgb(184, 184, 184);
+  border-radius: 10px;
+  background-color: #edeff1;
+}
+.container_popupNewUser > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.container_popupNewUser > div > input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgb(184, 184, 184);
+  color: rgb(48, 48, 48);
+  font-size: 17px;
+}
+.container_popupNewUser div > input:focus {
+  outline: 2px solid #3e7ad9;
+}
+.container_popupNewUser > div > label {
+  width: 130px;
+}
+.container_popupNewUser section {
+  display: flex;
+}
+.container_popupNewUser section label {
+  display: flex;
+}
+.container_popupNewUser section p {
+  width: 94px;
+}
+.container_popupNewUser > button {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  background-color: #2065d1;
+  box-shadow: 0px 0px 10px rgb(184, 184, 184);
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  color: white;
+}
+.container_popupNewUser > button:hover {
+  background-color: #3e7ad9;
+}
+.radio {
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: capitalize;
+  display: block;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+.hidden_radio {
+  display: none;
+}
+.radio span {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: 3px solid #3e7ad9;
+  display: block;
+  position: absolute;
+  left: 30px;
+  top: 0px;
+}
+.radio .span {
+  left: 38px;
+}
+.radio span::after {
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: #3e7ad9;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: 300ms ease-in-out 0s;
+}
+.hidden_radio:checked ~ span::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.blur_container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 600px) {
+  .container_popupNewUser {
+    width: 300px;
+  }
+}
+@media (max-width: 380px) {
+  .container_popupNewUser {
+    width: 250px;
+  }
+}

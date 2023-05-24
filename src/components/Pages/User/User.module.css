@@ -21,13 +21,7 @@
   display: flex;
   align-items: center;
 }
-.add_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 340px;
-}
-.add_container > button {
+.add_button {
   color: white;
   border: none;
   padding: 10px 15px;
@@ -37,20 +31,6 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-}
-.add_container > input {
-  width: 200px;
-  border: 1px solid #d5d9dd;
-  border-radius: 5px;
-  padding: 10px;
-  outline: none;
-  transition: 0.4s;
-  font-size: 15px;
-  color: rgb(99, 115, 129);
-}
-.add_container > input:focus {
-  transition: 0.4s;
-  box-shadow: 0px 0px 10px rgb(221, 220, 220);
 }
 .search_container {
   display: flex;
@@ -142,7 +122,6 @@
 .user_container > .status > i:hover {
   background-color: rgb(238, 238, 239);
 }
-
 .user_container > .checkbox {
   width: 220px;
   display: flex;
@@ -203,6 +182,62 @@
   margin-right: 5px;
   font-size: 14px;
 }
+/*-------------  */
+.status {
+  position: relative;
+  cursor: pointer;
+}
+.status_block_hidden {
+  display: none;
+}
+.status_block_show {
+  display: block;
+  list-style-type: none;
+  position: absolute;
+  left: -115px;
+  top: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgb(196, 194, 194);
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 2;
+}
+.status_block_show > li {
+  display: flex;
+  align-items: center;
+}
+.status_block_show :first-child > p {
+  background-color: #e4f8dd;
+  font-size: 15px;
+  color: rgb(41, 185, 28);
+  padding: 5px 0;
+  width: 60px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.status_block_show :last-child > p {
+  background-color: #ffe2e1;
+  font-size: 15px;
+  color: rgb(183, 33, 54);
+  padding: 5px 0;
+  width: 60px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+.status_block_show :first-child > span,
+.status_block_show :last-child > span {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #b6b6b6;
+}
+/* ----------- */
 .custom_checkbox {
   display: flex;
   align-items: center;
@@ -240,23 +275,5 @@
   .container {
     margin-bottom: 300px;
     overflow-x: scroll;
-  }
-}
-
-@media (max-width: 500px) {
-  .title_container {
-    flex-direction: column;
-  }
-  .title_container > h1 {
-    margin-left: 20px;
-    margin-bottom: 30px;
-  }
-  .add_container {
-    margin: 0 auto;
-    justify-content: flex-start;
-  }
-  .add_container > input {
-    width: 150px;
-    margin-right: 10px;
   }
 }
