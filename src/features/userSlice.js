@@ -3,6 +3,7 @@ import { data } from "../components/Pages/User/People_Data";
 
 const initialState = {
   userState: data,
+  userNewState: data,
   showPopupState: false,
   statusBlockState: false,
   idStatus: "",
@@ -17,8 +18,8 @@ const userSlice = createSlice({
       );
     },
     searchUser: (state, action) => {
-      if (action.payload.length >= 0) state.userState = data;
-      state.userState = state.userState.filter((u) =>
+      if (action.payload.length >= 0) state.userState = state.userNewState;
+      state.userState = state.userNewState.filter((u) =>
         u.name.toLowerCase().includes(action.payload.toLowerCase())
       );
     },
@@ -42,6 +43,7 @@ const userSlice = createSlice({
           ...state.userState,
         ];
       }
+      state.userNewState = state.userState;
       state.userState = state.userState;
     },
     showPopupUser: (state, action) => {
