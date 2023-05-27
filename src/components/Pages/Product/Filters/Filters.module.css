@@ -12,6 +12,7 @@
   background-color: #fff;
   z-index: 999;
   height: 100vh;
+  overflow-y: auto;
 }
 .container > input {
   width: 80%;
