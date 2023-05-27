@@ -67,3 +67,8 @@
     background-color: #fff;
   }
 }
+@media (max-height: 700px) {
+  .pieChart {
+    display: none;
+  }
+}

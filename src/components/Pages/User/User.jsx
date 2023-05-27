@@ -55,20 +55,20 @@ const User = () => {
           <AiOutlinePlus /> New User
         </button>
       </div>
-      <div>
-        <div className={s.search_container}>
-          <div>
-            <ImSearch />
-            <input
-              type="text"
-              placeholder="Search User..."
-              onChange={(e) => search(e.target.value)}
-            />
-          </div>
-          <span onClick={deleteAllCompleted}>
-            <FaRegTrashAlt />
-          </span>
+      <div className={s.search_container}>
+        <div>
+          <ImSearch />
+          <input
+            type="text"
+            placeholder="Search User..."
+            onChange={(e) => search(e.target.value)}
+          />
         </div>
+        <span onClick={deleteAllCompleted}>
+          <FaRegTrashAlt />
+        </span>
+      </div>
+      <div className={s.block_container}>
         <ul className={s.user_container + " " + s.user_container_header}>
           <li className={s.checkbox}>
             <label onClick={allChecks}>
@@ -102,7 +102,6 @@ const User = () => {
               <li className={s.company}>{i.company}</li>
               <li className={s.role}>{i.role}</li>
               <li className={s.verified}>{i.verified}</li>
-
               <li onClick={(e) => e.stopPropagation()} className={s.status}>
                 <span
                   className={i.status === "Active" ? s.active : s.banned}
