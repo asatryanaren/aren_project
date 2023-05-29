@@ -12,7 +12,6 @@
   background-color: #fff;
   z-index: 999;
   height: 100vh;
-  overflow-y: auto;
 }
 .container > input {
   width: 80%;
@@ -101,7 +100,8 @@
   padding: 0 20px;
 }
 .colors_container > div {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px 40px 40px 40px;
 }
 .colors_container > p {
   font-weight: 600;
@@ -128,6 +128,10 @@
   height: 25px;
   border-radius: 100%;
 }
+.active {
+  background-color: rgb(226, 226, 226);
+}
+
 .green {
   background-color: #00ab55;
 }

@@ -19,9 +19,8 @@ import { filter } from "../../features/ProductSlice";
 const Sidebar = () => {
   const showState = useSelector(selectBurgerState);
   const dispatch = useDispatch();
-  window.addEventListener("click", () => {
-    dispatch(burgerShow(false));
-  });
+  const hiddenBurger = () => dispatch(burgerShow(false));
+  window.addEventListener("click", hiddenBurger);
 
   return (
     <div
@@ -39,27 +38,27 @@ const Sidebar = () => {
         <h4>Jaydon Frankie</h4>
       </div>
       <div className={s.body_sidebar}>
-        <NavLink to="/" className={s.link}>
+        <NavLink to="/" className={s.link} onClick={hiddenBurger}>
           <MdOutlineDashboard />
           Dashboard
         </NavLink>
-        <NavLink to="user" className={s.link}>
+        <NavLink to="user" className={s.link} onClick={hiddenBurger}>
           <SlUser />
           User
         </NavLink>
-        <NavLink to="product" className={s.link}>
+        <NavLink to="product" className={s.link} onClick={hiddenBurger}>
           <SlBasket />
           Product
         </NavLink>
-        <NavLink to="blog" className={s.link}>
+        <NavLink to="blog" className={s.link} onClick={hiddenBurger}>
           <TbBrandBlogger />
           Blog
         </NavLink>
-        <NavLink to="/login" className={s.link}>
+        <NavLink to="/login" className={s.link} onClick={hiddenBurger}>
           <FiLogIn />
           Login
         </NavLink>
-        <NavLink to="/notfound" className={s.link}>
+        <NavLink to="/notfound" className={s.link} onClick={hiddenBurger}>
           <MdDoNotDisturbAlt />
           Not Found
         </NavLink>

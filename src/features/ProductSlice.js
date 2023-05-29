@@ -1,99 +1,66 @@
-import { createSlice } from "@reduxjs/toolkit";
 import { data } from "../components/Pages/Product/Product_Data";
+import { createSlice } from "@reduxjs/toolkit";
+import { getFilteredData } from "../helpers";
 
 const initialState = {
-  data,
-  globalGender: data,
-  globalCategory: data,
-  globalColor: data,
-  menState: false,
-  womenState: false,
-  kidsState: false,
+  items: data,
+  filterGenderList: [],
+  filterCategory: "all",
+  filterColorsList: [],
   filterState: false,
 };
 const ProductSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    gender: (state, action) => {
-      state.data = state.globalGender.filter(
-        (g) => g.gender === action.payload
-      );
+    setGender: (state, action) => {
+      state.filterGenderList = state.filterGenderList.includes(action.payload)
+        ? state.filterGenderList.filter((item) => item !== action.payload)
+        : [...state.filterGenderList, action.payload];
+
+      ProductSlice.caseReducers.getFilteredData(state, action);
     },
-    genderInitialState: (state) => {
-      state.data = data;
+    setCategory: (state, action) => {
+      state.filterCategory = action.payload;
+
+      ProductSlice.caseReducers.getFilteredData(state, action);
     },
-    men: (state, action) => {
-      state.menState = action.payload;
+    setColors: (state, action) => {
+      state.filterColorsList = state.filterColorsList.includes(action.payload)
+        ? state.filterColorsList.filter((item) => item !== action.payload)
+        : [...state.filterColorsList, action.payload];
+
+      ProductSlice.caseReducers.getFilteredData(state, action);
     },
-    women: (state, action) => {
-      state.womenState = action.payload;
+    clealAll: (state, action) => {
+      state.filterCategory = "all";
+      state.filterColorsList = [];
+      state.filterGenderList = [];
+
+      ProductSlice.caseReducers.getFilteredData(state, action);
     },
-    kids: (state, action) => {
-      state.kidsState = action.payload;
-    },
-    category: (state, action) => {
-      switch (action.payload) {
-        case "all":
-          state.data = state.globalCategory;
-          break;
-        case "shose":
-          state.data = state.globalCategory.filter(
-            (shose) => shose.category === "shose"
-          );
-          break;
-        case "apparel":
-          state.data = state.globalCategory.filter(
-            (apparel) => apparel.category === "apparel"
-          );
-          break;
-        case "accessories":
-          state.data = state.globalCategory.filter(
-            (accessories) => accessories.category === "accessories"
-          );
-          break;
-      }
-    },
-    color: (state, action) => {
-      switch (action.payload) {
-        case "green":
-          state.data = state.globalColor.filter((c) => c.color === "green");
-          break;
-        case "blue":
-          state.data = state.globalColor.filter((c) => c.color === "blue");
-          break;
-        case "pink":
-          state.data = state.globalColor.filter((c) => c.color === "pink");
-          break;
-        case "white":
-          state.data = state.globalColor.filter((c) => c.color === "white");
-          break;
-        case "lightGreen":
-          state.data = state.globalColor.filter(
-            (c) => c.color === "lightGreen"
-          );
-          break;
-        case "red":
-          state.data = state.globalColor.filter((c) => c.color === "red");
-          break;
-        case "black":
-          state.data = state.globalColor.filter((c) => c.color === "black");
-          break;
-        case "yellow":
-          state.data = state.globalColor.filter((c) => c.color === "yellow");
-          break;
-      }
+    getFilteredData: (state, action) => {
+      const filterCategory = state.filterCategory;
+      const filterColorsList = [...state.filterColorsList];
+      const filterGenderList = [...state.filterGenderList];
+
+      state.items = getFilteredData({
+        data,
+        filterCategory,
+        filterColorsList,
+        filterGenderList,
+      });
     },
     filter: (state, action) => {
       state.filterState = action.payload;
     },
   },
 });
-export const selectProductState = (state) => state.product.data;
-export const selectMenState = (state) => state.product.menState;
-export const selectWomenState = (state) => state.product.womenState;
-export const selectKidsState = (state) => state.product.kidsState;
+export const selectProductState = (state) => state.product.items;
 export const selectFilterState = (state) => state.product.filterState;
+export const selectFilterGenders = (state) => state.product.filterGenderList;
+export const selectFilterCategory = (state) => state.product.filterCategory;
+export const selectFilterColorsList = (state) => state.product.filterColorsList;
 export const {
   gender,
   genderInitialState,
@@ -103,5 +70,9 @@ export const {
   color,
   category,
   filter,
+  setGender,
+  setCategory,
+  setColors,
+  clealAll,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;
