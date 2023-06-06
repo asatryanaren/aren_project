@@ -18,6 +18,7 @@ const Blog = () => {
             type="text"
             placeholder="Search post..."
             onChange={(v) => value(v)}
+            autoFocus={true}
           />
         </div>
       </div>

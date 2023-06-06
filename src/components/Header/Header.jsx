@@ -15,6 +15,7 @@ import {
 import BellClick from "../openWindow/BellClick";
 import { UserClick } from "../openWindow/UserClick";
 import { filter } from "../../features/ProductSlice";
+import { useRef } from "react";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,10 @@ const Header = () => {
   window.addEventListener("click", () => dispatch(showBell(false)));
   window.addEventListener("click", () => dispatch(showDownHeader(false)));
   window.addEventListener("click", () => dispatch(showUser(false)));
+
+  const inputRef = useRef();
+  const clickForInput = () => inputRef.current.focus();
+
   const showBurger = (e) => {
     dispatch(burgerShow(true));
     dispatch(showDownHeader(false));
@@ -40,6 +45,7 @@ const Header = () => {
     dispatch(showUser(false));
     dispatch(filter(false));
     dispatch(burgerShow(false));
+    clickForInput();
     e.stopPropagation();
   };
   const showUserClick = (e) => {
@@ -59,7 +65,7 @@ const Header = () => {
 
   return (
     <header>
-      <div
+      <form
         className={showHeader ? style.hidden_block_show : style.hidden_block}
         onClick={(e) => e.stopPropagation()}
       >
@@ -71,10 +77,11 @@ const Header = () => {
             type="text"
             placeholder="Search..."
             className={style.search_place}
+            ref={inputRef}
           />
         </>
-        <button className={style.search_btn}>Search</button>
-      </div>
+        <input type="submit" value="Search" className={style.search_btn} />
+      </form>
       <div className={style.header_left_block}>
         <div onClick={(e) => showBurger(e)} className={style.burger}>
           <GiHamburgerMenu />
